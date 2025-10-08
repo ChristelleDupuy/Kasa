@@ -1,4 +1,5 @@
 const http = require('http');
+console.log("Le fichier server.js est bien lancé !");
 const app = require('./app');
 
 const normalizePort = val => {
@@ -43,5 +44,7 @@ server.on('listening', () => {
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
   console.log('Listening on ' + bind);
 });
+
+console.log("Tentative de démarrage du serveur sur le port", port);
 
 server.listen(port);
