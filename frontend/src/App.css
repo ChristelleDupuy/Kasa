@@ -1,3 +1,4 @@
+/* --- Global styles (Kasa) --- */
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -40,4 +41,14 @@ header {
 
 footer {
   margin-top: 40px;
+}
+
+/* --- Optionnel : animation de logo (si utilisée) --- */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
