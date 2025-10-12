@@ -1,6 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Slideshow from "../../components/Slideshow/Slideshow";
+import Collapse from "../../components/Collapse/Collapse";
 import "./Logement.css";
 
 function Logement() {
@@ -25,8 +26,52 @@ function Logement() {
   return (
     <main className="logement-page">
       <Slideshow pictures={logement.pictures} />
+  
+      <section className="logement-info">
+        <div className="logement-header">
+          <div>
+            <h1>{logement.title}</h1>
+            <p className="location">{logement.location}</p>
+            <div className="tags">
+              {logement.tags.map((tag, index) => (
+                <span key={index} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+  
+          <div className="host-info">
+            <div className="host-name">{logement.host.name}</div>
+            <img
+              src={logement.host.picture}
+              alt={logement.host.name}
+              className="host-picture"
+            />
+          </div>
+        </div>
+  
+        <div className="rating">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span key={i} className={i < logement.rating ? "star filled" : "star"}>
+              ★
+            </span>
+          ))}
+        </div>
+  
+        <div className="collapses">
+          <Collapse title="Description">{logement.description}</Collapse>
+          <Collapse title="Équipements">
+            <ul>
+              {logement.equipments.map((eq, index) => (
+                <li key={index}>{eq}</li>
+              ))}
+            </ul>
+          </Collapse>
+        </div>
+      </section>
     </main>
-  );
+  );  
 }
 
 export default Logement;
