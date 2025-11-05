@@ -26,10 +26,10 @@ function Logement() {
   return (
     <main className="logement-page">
       <Slideshow pictures={logement.pictures} />
-  
+
       <section className="logement-info">
         <div className="logement-header">
-          <div>
+          <div className="logement-header-left">
             <h1>{logement.title}</h1>
             <p className="location">{logement.location}</p>
             <div className="tags">
@@ -40,25 +40,30 @@ function Logement() {
               ))}
             </div>
           </div>
-  
-          <div className="host-info">
-            <div className="host-name">{logement.host.name}</div>
-            <img
-              src={logement.host.picture}
-              alt={logement.host.name}
-              className="host-picture"
-            />
+
+          <div className="logement-header-right">
+            <div className="host-info">
+              <div className="host-name">{logement.host.name}</div>
+              <img
+                src={logement.host.picture}
+                alt={logement.host.name}
+                className="host-picture"
+              />
+            </div>
+
+            <div className="rating">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <span
+                  key={i}
+                  className={i < logement.rating ? "star filled" : "star"}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-  
-        <div className="rating">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span key={i} className={i < logement.rating ? "star filled" : "star"}>
-              ★
-            </span>
-          ))}
-        </div>
-  
+
         <div className="collapses">
           <Collapse title="Description">{logement.description}</Collapse>
           <Collapse title="Équipements">
@@ -71,7 +76,7 @@ function Logement() {
         </div>
       </section>
     </main>
-  );  
+  );
 }
 
 export default Logement;

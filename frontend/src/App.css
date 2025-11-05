@@ -1,54 +1,31 @@
-/* --- Global styles (Kasa) --- */
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #fff;
-  color: #000;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-main {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.main-container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
 html,
 body,
 #root {
   height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.app-wrapper {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.main-container {
+main {
   flex: 1;
-}
-
-header {
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 footer {
-  margin-top: 40px;
-}
-
-/* --- Optionnel : animation de logo (si utilisée) --- */
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  flex-shrink: 0;
 }

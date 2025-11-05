@@ -7,11 +7,13 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <div className="main-container">
+      <div className="app-wrapper">
         <Header />
-        <AppRouter />
+        <main>
+          <AppRouter />
+        </main>
+        <Footer />
       </div>
-      <Footer />
     </Router>
   );
 }

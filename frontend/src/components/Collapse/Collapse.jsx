@@ -1,30 +1,37 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 import "./Collapse.css";
-import { ChevronUp, ChevronDown } from "lucide-react";
 
 function Collapse({ title, children }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [height, setHeight] = useState("0px");
+  const contentRef = useRef(null);
 
-  const toggleCollapse = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleCollapse = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : "0px");
+    }
+  }, [isOpen]);
 
   return (
-    <div className="collapse">
+    <div className={`collapse ${isOpen ? "open" : ""}`}>
       <div className="collapse-header" onClick={toggleCollapse}>
         <h3>{title}</h3>
-        {isOpen ? (
-          <ChevronUp className="collapse-icon" />
-        ) : (
-          <ChevronDown className="collapse-icon" />
-        )}
+        <ChevronDown
+          className={`collapse-icon ${isOpen ? "open" : ""}`}
+          size={35}
+        />
       </div>
 
-      {isOpen && (
-        <div className="collapse-content">
-          <p>{children}</p>
-        </div>
-      )}
+      <div
+        ref={contentRef}
+        className="collapse-content"
+        style={{ maxHeight: height }}
+      >
+        <p>{children}</p>
+      </div>
     </div>
   );
 }
