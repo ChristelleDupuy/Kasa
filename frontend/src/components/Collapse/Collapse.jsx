@@ -30,7 +30,7 @@ function Collapse({ title, children }) {
         className="collapse-content"
         style={{ maxHeight: height }}
       >
-        <p>{children}</p>
+        {children}
       </div>
     </div>
   );

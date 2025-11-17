@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import Logement from "./Logement";
+import Logement from "../pages/Logement/Logement";
 
 global.fetch = vi.fn(() =>
   Promise.resolve({

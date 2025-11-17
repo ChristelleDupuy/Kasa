@@ -65,7 +65,7 @@ function Logement() {
         </div>
 
         <div className="collapses">
-          <Collapse title="Description">{logement.description}</Collapse>
+          <Collapse title="Description"><p>{logement.description}</p></Collapse>
           <Collapse title="Équipements">
             <ul>
               {logement.equipments.map((eq, index) => (

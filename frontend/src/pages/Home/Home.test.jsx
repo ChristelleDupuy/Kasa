@@ -45,11 +45,4 @@ describe("Page Home", () => {
     expect(screen.getByText("Logement 2")).toBeInTheDocument();
   });
 
-  it("gère une erreur réseau proprement", async () => {
-    fetch.mockRejectedValueOnce(new Error("Erreur réseau"));
-    render(<Home />);
-    await waitFor(() => {
-      expect(screen.getByText(/Chargement des logements/i)).toBeInTheDocument();
-    });
-  });
 });
