@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./Slideshow.css";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Slideshow({ pictures }) {
   const [current, setCurrent] = useState(0);
@@ -14,11 +13,17 @@ function Slideshow({ pictures }) {
       {total > 1 && (
         <>
           <button className="arrow left" onClick={prevSlide}>
-            <ChevronLeft />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
           </button>
+
           <button className="arrow right" onClick={nextSlide}>
-            <ChevronRight />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </button>
+
           <div className="counter">
             {current + 1} / {total}
           </div>

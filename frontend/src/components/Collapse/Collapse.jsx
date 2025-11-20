@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
 import "./Collapse.css";
 
 function Collapse({ title, children }) {
@@ -19,10 +18,20 @@ function Collapse({ title, children }) {
     <div className={`collapse ${isOpen ? "open" : ""}`}>
       <div className="collapse-header" onClick={toggleCollapse}>
         <h3>{title}</h3>
-        <ChevronDown
+        <svg
           className={`collapse-icon ${isOpen ? "open" : ""}`}
-          size={35}
-        />
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </div>
 
       <div
